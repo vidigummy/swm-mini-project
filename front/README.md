@@ -4,6 +4,7 @@
 
 - User:
   - 고유 아이디 (String)
+  - 이미지 (blob ? image ? 타입 뭘까요 ?)
   - 이름 (String)
   - 본인 분야 (String Array)
   - 팀매칭 여부 (boolean)
