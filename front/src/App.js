@@ -6,7 +6,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import React from "react";
 import { Link, Route, Routes } from "react-router-dom";
-import Home from "./pages/Home";
+import Users from "./pages/Users";
 import WritePost from "./pages/WritePost";
 
 const theme = createTheme();
@@ -23,7 +23,7 @@ export default function () {
                 </Toolbar>
             </AppBar>
             <Routes>
-                <Route path="/" element={<Home />} />
+                <Route path="/" element={<Users />} />
                 <Route path="/post" element={<WritePost />} />
             </Routes>
 
