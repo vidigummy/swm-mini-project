@@ -74,7 +74,6 @@ export default function () {
                             <Card
                                 sx={{
                                     width: "100%",
-                                    height: "300px",
                                     display: "flex",
                                     flexDirection: "column",
                                 }}
@@ -84,7 +83,7 @@ export default function () {
                                     image="https://source.unsplash.com/random"
                                     alt="random"
                                     sx={{
-                                        width: "100%",
+                                        height: "300px",
                                     }}
                                 />
                                 <CardContent sx={{ flexGrow: 1 }}>

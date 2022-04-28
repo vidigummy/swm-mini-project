@@ -8,6 +8,7 @@ import React from "react";
 import { Link, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import WritePost from "./pages/WritePost";
+
 const theme = createTheme();
 
 export default function () {
