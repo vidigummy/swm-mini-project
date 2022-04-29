@@ -3,7 +3,11 @@ import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import React from "react";
 
-export default function NameContactForm({ user, onInputChange }) {
+export default function NameContactForm({
+    user,
+    isAlreadyExist,
+    onInputChange,
+}) {
     return (
         <React.Fragment>
             <Typography variant="h6" gutterBottom>
@@ -34,6 +38,13 @@ export default function NameContactForm({ user, onInputChange }) {
                         variant="standard"
                     />
                 </Grid>
+                {isAlreadyExist && (
+                    <Grid item xs={12}>
+                        <Typography color="error" gutterBottom>
+                            이미 작성한 글이 존재합니다.
+                        </Typography>
+                    </Grid>
+                )}
             </Grid>
         </React.Fragment>
     );

@@ -57,6 +57,7 @@ export default function WritePost() {
                         <NameContactForm
                             user={user}
                             onInputChange={onInputChange}
+                            isAlreadyExist={false} // 이미 존재하면 true
                         />
                     ) : (
                         <IntroduceForm user={user} />
