@@ -1,9 +1,35 @@
 import Grid from "@mui/material/Grid";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
-import * as React from "react";
+import React, { useCallback, useState } from "react";
+import EditableChips from "../../components/EditableChips";
 
 export default function AddressForm({ user }) {
+    const [needs, setNeeds] = useState([]);
+    const [skills, setSkills] = useState([]);
+
+    const handleRemoveNeeds = useCallback(
+        (data) => () => {
+            setNeeds((needs) => needs.filter((need) => need !== data));
+        },
+        []
+    );
+
+    const handleAddNeeds = useCallback((need) => {
+        setNeeds((needs) => needs.concat(need));
+    }, []);
+
+    const handleRemoveSkills = useCallback(
+        (data) => () => {
+            setSkills((skills) => skills.filter((skill) => skill !== data));
+        },
+        []
+    );
+
+    const handleAddSkills = useCallback((skill) => {
+        setSkills((skills) => skills.concat(skill));
+    }, []);
+
     return (
         <React.Fragment>
             <Typography variant="h6" gutterBottom>
@@ -38,6 +64,26 @@ export default function AddressForm({ user }) {
                         label="희망 프로젝트 주제"
                         fullWidth
                         variant="standard"
+                    />
+                </Grid>
+                <Grid item xs={12}>
+                    <Typography>보유 기술</Typography>
+                </Grid>
+                <Grid item xs={12}>
+                    <EditableChips
+                        chipDatas={needs}
+                        onAdd={handleAddNeeds}
+                        onRemove={handleRemoveNeeds}
+                    />
+                </Grid>
+                <Grid item xs={12}>
+                    <Typography>필요한 기술</Typography>
+                </Grid>
+                <Grid item xs={12}>
+                    <EditableChips
+                        chipDatas={skills}
+                        onAdd={handleAddSkills}
+                        onRemove={handleRemoveSkills}
                     />
                 </Grid>
                 <Grid item xs={12}>
