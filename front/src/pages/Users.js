@@ -27,7 +27,7 @@ const cards = [
     },
 ];
 
-export default function () {
+export default function Users() {
     return (
         <main>
             <Box

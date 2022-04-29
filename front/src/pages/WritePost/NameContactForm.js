@@ -3,7 +3,7 @@ import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import React from "react";
 
-export default function ({ user, onInputChange }) {
+export default function NameContactForm({ user, onInputChange }) {
     return (
         <React.Fragment>
             <Typography variant="h6" gutterBottom>

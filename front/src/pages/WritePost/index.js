@@ -13,7 +13,7 @@ import NameContactForm from "./NameContactForm";
 
 const steps = ["개인정보입력", "소개작성"];
 
-export default function () {
+export default function WritePost() {
     const [activeStep, setActiveStep] = useState(0);
     const [user, setUser] = useState({ name: "", contact: "" });
     const onInputChange = (e) => {

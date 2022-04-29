@@ -11,14 +11,14 @@ import WritePost from "./pages/WritePost";
 
 const theme = createTheme();
 
-export default function () {
+export default function App() {
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline />
             <AppBar position="relative" style={{ background: "white" }}>
                 <Toolbar>
                     <Link to="/">
-                        <img src="logo.png" />
+                        <img src="logo.png" alt="logo" />
                     </Link>
                 </Toolbar>
             </AppBar>
