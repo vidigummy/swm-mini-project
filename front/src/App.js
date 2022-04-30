@@ -6,23 +6,24 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import React from "react";
 import { Link, Route, Routes } from "react-router-dom";
-import Home from "./pages/Home";
+import Users from "./pages/Users";
 import WritePost from "./pages/WritePost";
+
 const theme = createTheme();
 
-export default function () {
+export default function App() {
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline />
             <AppBar position="relative" style={{ background: "white" }}>
                 <Toolbar>
                     <Link to="/">
-                        <img src="logo.png" />
+                        <img src="logo.png" alt="logo" />
                     </Link>
                 </Toolbar>
             </AppBar>
             <Routes>
-                <Route path="/" element={<Home />} />
+                <Route path="/" element={<Users />} />
                 <Route path="/post" element={<WritePost />} />
             </Routes>
 
