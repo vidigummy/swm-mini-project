@@ -3,15 +3,21 @@
 ## Entity
 
 - User:
-  - 고유 아이디 (String)
+
+  - 사용자 고유 아이디 (string)
+  - 패스워드 (string)
   - 이미지 (blob ? image ? 타입 뭘까요 ?)
-  - 이름 (String)
-  - 본인 분야 (String Array)
+  - 이름 (string)
+  - 본인 분야 (string Array)
   - 팀매칭 여부 (boolean)
-  - 구하는사람 분야 (String Array)
-  - 연락처(전화번호) (String)
-  - 본인 소개 (String)
-  - 희망 프로젝트 주제 (String)
+  - 구하는사람 분야 (string Array)
+  - 연락처(전화번호) (string)
+  - 본인 소개 (string)
+  - 희망 프로젝트 주제 (string)
+
+- Post:
+  - 사용자 고유 아이디 (string)
+  - 패스워드 (string)
 
 ## 페이지별
 

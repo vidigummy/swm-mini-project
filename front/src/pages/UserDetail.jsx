@@ -19,90 +19,98 @@ const UserDetail = () => {
   return (
     <Box
       sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
         width: '70vw',
+        maxWidth: '1200px',
         margin: 'auto',
         marginTop: '5em',
       }}
     >
-      <Grid
-        container
-        sx={{
-          marginBottom: '2em',
-        }}
-      >
-        {/* 이름, 본인 분야, 팀 매칭 여부 */}
+      <Paper elevation={3}>
+        <Grid
+          container
+          sx={{
+            marginBottom: '2em',
+          }}
+        >
+          {/* 이름, 본인 분야, 팀 매칭 여부 */}
 
-        <Grid item xs={3}>
-          <img alt="사용자 이미지" src={profile_img} style={{ width: '128px', height: 'auto' }} />
-        </Grid>
-
-        <Grid item xs={9} sm container>
-          <Box
+          <Grid
+            item
+            xs={12}
+            sm={3}
             sx={{
               display: 'flex',
-              alignItems: 'center',
-              width: '100%',
+              justifyContent: 'center',
             }}
           >
-            <Grid item xs>
-              <Box
-                sx={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'space-between',
-                }}
-              >
-                <Typography variant="subtitle1" component="div" gutterBottom>
-                  {data[0].name}
-                </Typography>
+            <img alt="사용자 이미지" src={profile_img} style={{ width: '128px', height: 'auto', margin: '20px' }} />
+          </Grid>
 
-                <Typography variant="subtitle1" gutterBottom>
-                  {data[0].ownSkills.map((skill, idx) => (
-                    <Chip key={idx} color="primary" label={skill} />
-                  ))}
-                </Typography>
-              </Box>
-
-              <Box
-                sx={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'space-between',
-                }}
-              >
-                <Typography variant="subtitle1" component="div" gutterBottom>
-                  Phone: {data[0].phone}
-                </Typography>
-
-                {data[0].match ? (
-                  <Typography
-                    variant="subtitle1"
-                    gutterBottom
-                    sx={{
-                      color: 'green',
-                    }}
-                  >
-                    🟢 매칭 완료
+          <Grid container xs={12} sm={9} p={4}>
+            <Box
+              sx={{
+                display: 'flex',
+                alignItems: 'center',
+                width: '100%',
+              }}
+            >
+              <Grid item xs>
+                <Box
+                  sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                  }}
+                >
+                  <Typography variant="subtitle1" component="div" gutterBottom>
+                    {data[0].name}
                   </Typography>
-                ) : (
-                  <Typography
-                    variant="subtitle1"
-                    gutterBottom
-                    sx={{
-                      color: 'red',
-                    }}
-                  >
-                    🔴 매칭 중
+
+                  <Typography variant="subtitle1" gutterBottom>
+                    {data[0].ownSkills.map((skill, idx) => (
+                      <Chip key={idx} color="primary" label={skill} />
+                    ))}
                   </Typography>
-                )}
-              </Box>
-            </Grid>
-          </Box>
+                </Box>
+
+                <Box
+                  sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                  }}
+                >
+                  <Typography variant="subtitle1" component="div" gutterBottom>
+                    Phone: {data[0].phone}
+                  </Typography>
+
+                  {data[0].match ? (
+                    <Typography
+                      variant="subtitle1"
+                      gutterBottom
+                      sx={{
+                        color: 'green',
+                      }}
+                    >
+                      🟢 매칭 완료
+                    </Typography>
+                  ) : (
+                    <Typography
+                      variant="subtitle1"
+                      gutterBottom
+                      sx={{
+                        color: 'red',
+                      }}
+                    >
+                      🔴 매칭 중
+                    </Typography>
+                  )}
+                </Box>
+              </Grid>
+            </Box>
+          </Grid>
         </Grid>
-      </Grid>
+      </Paper>
 
       <Grid container>
         {/* 구하는사람 분야 */}
@@ -118,12 +126,19 @@ const UserDetail = () => {
             </Typography>
 
             {data[0].wantSkills.map((skill, idx) => (
-              <Chip key={idx} color="primary" label={skill} />
+              <Chip
+                key={idx}
+                color="primary"
+                label={skill}
+                sx={{
+                  marginRight: '10px',
+                }}
+              />
             ))}
           </Grid>
 
           {/* 본인소개 */}
-          <Grid item>
+          <Grid item pt={3}>
             <Typography variant="subtitle1" gutterBottom>
               👋 자기 소개
             </Typography>
@@ -134,7 +149,7 @@ const UserDetail = () => {
           </Grid>
 
           {/* 희망 프로젝트 주제 */}
-          <Grid item>
+          <Grid item pt={3}>
             <Typography variant="subtitle1" gutterBottom>
               🚀 희망 프로젝트
             </Typography>
