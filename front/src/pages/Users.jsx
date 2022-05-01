@@ -9,7 +9,15 @@ import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
-import * as React from 'react';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+import OutlinedInput from '@mui/material/OutlinedInput';
+import Checkbox from '@mui/material/Checkbox';
+import ListItemText from '@mui/material/ListItemText';
+
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 const cards = [
@@ -27,7 +35,24 @@ const cards = [
   },
 ];
 
+const skills = ['프론트엔드', '백엔드', '모바일(Android)', '모바일(iOS)', 'AI', '블록체인/융합', '디바이스'];
+
 export default function Users() {
+  const [selectedSkill, setSelectedSkill] = useState([]);
+  const [selectedMatch, setSelectedMatch] = useState(0);
+
+  const handleSkillChange = event => {
+    setSelectedSkill(event.target.value);
+  };
+
+  const handleMatchChange = event => {
+    setSelectedMatch(event.target.value);
+  };
+
+  useEffect(() => {
+    console.log(`match: ${selectedMatch} , skill: ${selectedSkill}`);
+  }, [selectedSkill, selectedMatch]);
+
   return (
     <main>
       <Box
@@ -51,6 +76,49 @@ export default function Users() {
           </Stack>
         </Container>
       </Box>
+
+      <Container
+        sx={{
+          display: 'flex',
+          justifyContent: 'center',
+        }}
+      >
+        <FormControl sx={{ m: 1, minWidth: 120 }}>
+          <InputLabel id="demo-simple-select-helper-label">팀 매칭</InputLabel>
+          <Select
+            labelId="demo-simple-select-helper-label"
+            id="demo-simple-select-helper"
+            value={selectedMatch}
+            label="Team Matched"
+            onChange={handleMatchChange}
+          >
+            <MenuItem value="">선택</MenuItem>
+            <MenuItem value={0}>매칭 중</MenuItem>
+            <MenuItem value={1}>매칭 완료</MenuItem>
+          </Select>
+        </FormControl>
+
+        <FormControl sx={{ m: 1, width: 200 }}>
+          <InputLabel id="demo-multiple-checkbox-label">기술스택</InputLabel>
+          <Select
+            labelId="demo-multiple-checkbox-label"
+            id="demo-multiple-checkbox"
+            multiple
+            value={selectedSkill}
+            onChange={handleSkillChange}
+            input={<OutlinedInput label="기술스택" />}
+            renderValue={selected => selected.join(', ')}
+          >
+            {skills.map(skill => (
+              <MenuItem key={skill} value={skill}>
+                <Checkbox checked={selectedSkill.indexOf(skill) > -1} />
+                <ListItemText primary={skill} />
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+      </Container>
+
       <Container sx={{ py: 8 }}>
         <Grid container spacing={4}>
           {cards.map(user => (
