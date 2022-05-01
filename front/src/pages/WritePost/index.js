@@ -14,20 +14,16 @@ import NameContactForm from './NameContactForm';
 const steps = ['개인정보입력', '소개작성'];
 
 export default function WritePost() {
-  const [activeStep, setActiveStep] = useState(0);
-  const [user, setUser] = useState({ name: '', contact: '' });
-  const onInputChange = e => {
-    const { value, name } = e.target;
-    setUser({ ...user, [name]: value });
-  };
   const navigate = useNavigate();
+  const [activeStep, setActiveStep] = useState(0);
+  const [user, setUser] = useState({ name: '', contact: '', wish_topic: '', introduce: '', needs: [], skills: [] });
 
-  function handleNext() {
+  const handleNext = () => {
     setActiveStep(activeStep + 1);
     if (activeStep === 1) {
       navigate('/'); // 일단 메인화면으로 API호출 필요
     }
-  }
+  };
 
   const handleBack = () => {
     setActiveStep(activeStep - 1);
@@ -50,11 +46,11 @@ export default function WritePost() {
           {activeStep === 0 ? (
             <NameContactForm
               user={user}
-              onInputChange={onInputChange}
+              setUser={setUser}
               isAlreadyExist={false} // 이미 존재하면 true
             />
           ) : (
-            <IntroduceForm user={user} />
+            <IntroduceForm setUser={setUser} user={user} />
           )}
           <Box
             sx={{

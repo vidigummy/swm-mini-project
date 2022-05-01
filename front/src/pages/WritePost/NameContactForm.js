@@ -3,7 +3,12 @@ import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import React from 'react';
 
-export default function NameContactForm({ user, isAlreadyExist, onInputChange }) {
+export default function NameContactForm({ user, setUser, isAlreadyExist }) {
+  const onInputChange = e => {
+    const { value, name } = e.target;
+    setUser({ ...user, [name]: value });
+  };
+
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
