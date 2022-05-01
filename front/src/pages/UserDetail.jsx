@@ -46,7 +46,7 @@ const UserDetail = () => {
             <img alt="사용자 이미지" src={profile_img} style={{ width: '128px', height: 'auto', margin: '20px' }} />
           </Grid>
 
-          <Grid container xs={12} sm={9} p={4}>
+          <Grid container item xs={12} sm={9} p={4}>
             <Box
               sx={{
                 display: 'flex',
@@ -74,14 +74,15 @@ const UserDetail = () => {
                 </Box>
 
                 <Box
-                  sx={{
+                  xs={{
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-between',
                   }}
+                  sm={{}}
                 >
                   <Typography variant="subtitle1" component="div" gutterBottom>
-                    Phone: {data[0].phone}
+                    📱 {data[0].phone}
                   </Typography>
 
                   {data[0].match ? (
